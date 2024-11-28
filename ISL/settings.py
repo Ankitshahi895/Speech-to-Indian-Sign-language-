@@ -9,14 +9,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'ecq$v-2-@rm^l(0!7i=(l5!^@1m@7w$+p^w4z8fan#7t$i1(&i'
 DEBUG = True
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['speech-to-indian-sign-language.vercel.app', 'localhost']
+ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['speech-to-indian-sign-language.vercel.app', 'localhost']
 
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -27,6 +28,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
